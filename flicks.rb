@@ -1,14 +1,29 @@
-def weekday
-  current_time = Time.new
-  current_time.strftime("%A")
+class Movie
+  def initialize(title, rank=0)
+    @title = title.capitalize
+    @rank  = rank
+  end
+
+  def to_s
+    "#{@title} has a rank of #{@rank}"
+  end
+
+  def thumbs_up
+    @rank += 1
+  end
+
+  def thumbs_down
+    @rank -= 1
+  end
 end
 
-def movie_listing(title, rank=0)
-  "#{weekday.upcase}: #{title.capitalize} has a rank of #{rank}"
-end
+ movie1 = Movie.new("goonies", 10)
+ movie1.thumbs_up
+ puts movie1
 
-puts movie_listing("goonies", 10)
-puts movie_listing("Ghostbuster", 9)
+ movie2 = Movie.new("Ghostbuster", 9)
+ movie2.thumbs_down
+ puts movie2
 
-a_title = "goldfinger"
-puts movie_listing(a_title)
+ movie3 = Movie.new("goonies")
+ puts movie3
