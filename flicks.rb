@@ -1,49 +1,5 @@
-class Movie
-  attr_reader :rank
-  attr_accessor :title
-  def initialize(title, rank=0)
-    @title = title.capitalize
-    @rank  = rank
-  end
+require_relative "playlist"
 
-  def normalised_rank
-    @rank / 10
-  end
-
-  def to_s
-    "#{@title} has a rank of #{@rank}"
-  end
-
-  def thumbs_up
-    @rank += 1
-  end
-
-  def thumbs_down
-    @rank -= 1
-  end
-end
-
-class Playlist
-  attr_reader :name
-  def initialize(name)
-    @name = name
-    @movies = []
-  end
-
-  def add_movie(movie)
-    @movies << movie
-  end
-
-  def play
-    puts "#{name}'s playlist:"
-    puts @movies
-
-    @movies.each do |movie|
-      movie.thumbs_up
-      puts movie
-    end
-  end
-end
 movie1 = Movie.new("goonies", 10)
 movie2 = Movie.new("Ghostbuster", 9)
 movie3 = Movie.new("goldfinger")
