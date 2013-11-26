@@ -1,5 +1,4 @@
-require_relative 'playlist'
-# require_relative 'waldorf_and_statler'
+require './playlist'
 
 describe Playlist do
   before do
