@@ -12,6 +12,15 @@ class Movie
     @snack_carbs.values.reduce(0, :+)
   end
 
+  def self.from_csv(line)
+    title, rank = line.split(',')
+    movie = Movie.new(title, Integer(rank))
+  end
+
+  def to_csv
+    "#{title}, #{rank}"
+  end
+
   def each_snack
     @snack_carbs.each do |name, carbs|
       snack = Snack.new(name, carbs)
