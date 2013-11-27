@@ -12,6 +12,13 @@ class Movie
     @snack_carbs.values.reduce(0, :+)
   end
 
+  def each_snack
+    @snack_carbs.each do |name, carbs|
+      snack = Snack.new(name, carbs)
+      yield(snack)
+    end
+  end
+
   def ate_snack(snack)
     @snack_carbs[snack.name] += snack.carbs
     puts "#{title} led to #{snack.carbs} #{snack.name} carbs being consumed"
