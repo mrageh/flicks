@@ -1,7 +1,8 @@
-require "./lib/flicks/playlist"
+#!/usr/bin/env ruby
+require_relative "../lib/flicks/playlist"
 
 playlist = Flicks::Playlist.new("Kermit")
-default_movie_file = File.join(File.dir(__FILE__), 'movies.csv')
+default_movie_file = File.join(File.dirname(__FILE__), 'movies.csv')
 playlist.load(ARGV.shift || default_movie_file)
 movie3d = Flicks::Movie3D.new('glee', 5, 20)
 playlist.add_movie(movie3d)

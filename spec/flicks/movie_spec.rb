@@ -1,4 +1,4 @@
-require './lib/flicks/movie'
+require 'flicks/movie'
 
 module Flicks
   describe Movie do

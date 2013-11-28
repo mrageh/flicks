@@ -1,4 +1,4 @@
-require './lib/flicks/playlist'
+require 'flicks/playlist'
 
 module Flicks
   describe Playlist do
