@@ -1,8 +1,9 @@
-require_relative "playlist"
-require_relative "movie3d"
-playlist = Playlist.new("Kermit")
-playlist.load(ARGV.shift || "movies.csv")
-movie3d = Movie3D.new('glee', 5, 20)
+require "./lib/flicks/playlist"
+
+playlist = Flicks::Playlist.new("Kermit")
+default_movie_file = File.join(File.dir(__FILE__), 'movies.csv')
+playlist.load(ARGV.shift || default_movie_file)
+movie3d = Flicks::Movie3D.new('glee', 5, 20)
 playlist.add_movie(movie3d)
 loop do
   puts "\nHow many viewings? ('quit' to exit)"
